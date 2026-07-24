@@ -1,19 +1,11 @@
-"""
-config.py — All tunable settings for the Smart Vision Assistant live in one place.
-Tweak values here instead of hunting through the code.
-"""
 
 # ── Detection ────────────────────────────────────────────────────────────
 MODEL_PATH = "yolov8n.pt"      # "n" = nano, fastest, good enough for real-time on CPU/webcam
 CONFIDENCE_THRESHOLD = 0.5      # ignore detections below this confidence
 PROCESS_EVERY_N_FRAMES = 2      # run detection every Nth frame (speed vs smoothness tradeoff)
 
-# Set to None to detect ALL 80 COCO classes, or restrict to specific ones
 # (useful for a "walking assistant" use case — only care about obstacles)
 CLASSES_FILTER = None
-# Example restricted set:
-# CLASSES_FILTER = ["person", "chair", "car", "bicycle", "dog", "backpack",
-#                    "couch", "bench", "door", "stairs"]
 
 # ── Direction zones ──────────────────────────────────────────────────────
 # The frame is split into 5 horizontal zones for spoken direction feedback
