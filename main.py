@@ -1,8 +1,7 @@
 """
-main.py — Smart Vision Assistant
+Smart Vision Assistant
 
 Live object detection with spoken direction + distance feedback.
-Run:  python main.py
 Controls (while the video window is focused):
     q  -> quit
     m  -> mute / unmute audio
@@ -19,14 +18,7 @@ from spatial_utils import get_direction, estimate_distance
 
 
 class AnnouncementManager:
-    """
-    Decides WHEN to speak, so the app doesn't narrate every single frame.
-    - Danger ("very close") objects get near-immediate priority alerts,
-      throttled per class so they don't repeat every frame.
-    - Otherwise, every SUMMARY_INTERVAL_SEC we announce the single closest
-      object currently in view.
-    """
-
+    
     def __init__(self, speech: SpeechEngine):
         self.speech = speech
         self.last_danger_time = {}   # class_name -> timestamp
