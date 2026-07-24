@@ -1,9 +1,5 @@
 """
 audio_feedback.py — Non-blocking text-to-speech.
-
-Speech runs on its own background thread so it never freezes the video loop.
-"Priority" messages (e.g. a very close obstacle) flush the queue so the
-warning is heard immediately instead of waiting behind older announcements.
 """
 
 import threading
@@ -13,12 +9,7 @@ import config
 
 
 def _speak_in_subprocess(text, rate):
-    """
-    Runs in a brand-new OS process, so pyttsx3's internal engine-caching bug
-    (pyttsx3.init() secretly returns the same cached, already-broken engine
-    every time within a process) never has a chance to bite. Every call here
-    gets a completely clean interpreter and a genuinely fresh engine.
-    """
+    
     import pyttsx3
     engine = pyttsx3.init()
     engine.setProperty("rate", rate)
