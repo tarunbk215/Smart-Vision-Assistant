@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.Python
+venv/
+env/
+.venv/
+*.egg-info/
+
+# YOLO model weights (auto-downloaded on first run, don't need to be in git)
+*.pt
+
+# Ultralytics runtime files
+runs/
+Ultralytics/
+
+# OS / editor junk
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
